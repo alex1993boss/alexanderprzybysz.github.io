@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitrogen Dioxide Sensing Device</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #121212;
+            color: #e0e0e0;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.8); /* Tinted overlay */
+            z-index: 1;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+        h1 {
+            color: #bb86fc;
+        }
+        .tabs {
+            margin-top: 20px;
+        }
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .tab:hover {
+            background: #444;
+        }
+        .content {
+            display: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .content.active {
+            display: block;
+        }
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        ul {
+            list-style-type: disc;
+            margin: 20px 0;
+            padding-left: 40px;
+            color: #e0e0e0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gallery img {
+            max-width: 100%;
+            max-height: 500px; /* Set a maximum height */
+            border-radius: 10px;
+            display: none;
+        }
+        .gallery .visible {
+            display: block;
+        }
+        .gallery-button {
+            background: #333;
+            color: #e0e0e0;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+        .gallery-button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+
+<video class="video-background" autoplay loop muted>
+    <source src="no2sensor.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div class="overlay"></div>
+
+<div class="container">
+    <h1>Nitrogen Dioxide Sensing Device</h1>
+    <div class="tabs">
+        <div class="tab" onclick="showContent('description')">Description</div>
+        <div class="tab" onclick="showContent('contribution')">Contribution</div>
+        <div class="tab" onclick="showContent('media')">Gallery</div>
+    </div>
+    <div id="description" class="content active">
+        <p>This innovative prototype is a self-contained environmental sensor designed to detect Nitrogen Dioxide (NO<sub>2</sub>) gas with high precision. The device operates by pumping ambient air into a specialized chamber housing an indium gallium zinc oxide-based transducer, which is highly sensitive to Nitrogen Dioxide. This allows for accurate monitoring of NO<sub>2</sub> levels in various environments, making it an essential tool for environmental monitoring and research.</p>
+    </div>
+    <div id="contribution" class="content">
+        <ul>
+            <li><strong>Enclosure Design and Fabrication:</strong> Creating a durable and functional enclosure to protect the internal components and ensure reliable operation in various environmental conditions.</li>
+            <li><strong>Circuitry Design and Fabrication:</strong> Engineering the electronic circuitry to support the transducer and overall functionality of the device.</li>
+            <li><strong>Component Integration:</strong> Seamlessly integrating all components to ensure cohesive and efficient operation of the sensor.</li>
+        </ul>
+    </div>
+    <div id="media" class="content">
+        <div class="gallery">
+            <button class="gallery-button" onclick="changeImage(-1)">&#9664;</button>
+            <img src="no2_1.JPG" class="gallery-image visible" alt="Image 1">
+            <img src="no2_2.jpg" class="gallery-image" alt="Image 2">
+            <img src="no2_3.jpg" class="gallery-image" alt="Image 3">
+            <button class="gallery-button" onclick="changeImage(1)">&#9654;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showContent(tab) {
+        // Hide all content
+        document.querySelectorAll('.content').forEach(function(content) {
+            content.classList.remove('active');
+        });
+        // Show the selected content
+        document.getElementById(tab).classList.add('active');
+    }
+
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.gallery-image');
+
+    function changeImage(direction) {
+        images[currentImageIndex].classList.remove('visible');
+        currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+        images[currentImageIndex].classList.add('visible');
+    }
+</script>
+
+</body>
+</html>
