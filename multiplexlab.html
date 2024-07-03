@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitrogen Dioxide Sensing Device</title>
+    <title>Plant Phenotyping Device for Root Analysis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,6 +44,7 @@
         }
         h1 {
             color: #bb86fc;
+            font-size: 2em;
         }
         .tabs {
             margin-top: 20px;
@@ -56,6 +57,7 @@
             border-radius: 5px;
             cursor: pointer;
             margin: 0 5px;
+            font-size: 1em;
         }
         .tab:hover {
             background: #444;
@@ -108,32 +110,54 @@
         .gallery-button:hover {
             background: #444;
         }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .tab {
+                padding: 5px 10px;
+                font-size: 0.9em;
+            }
+            .gallery-button {
+                padding: 5px 10px;
+                margin: 0 5px;
+            }
+            .gallery img {
+                max-height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <video class="video-background" autoplay loop muted>
-    <source src="no2sensor.mp4" type="video/mp4">
+    <source src="multiplex_background.mp4" type="video/mp4">
     Your browser does not support the video tag.
 </video>
 
 <div class="overlay"></div>
 
 <div class="container">
-    <h1>Nitrogen Dioxide Sensing Device</h1>
+    <h1>Plant Phenotyping Device for Root Analysis</h1>
     <div class="tabs">
         <div class="tab" onclick="showContent('description')">Description</div>
         <div class="tab" onclick="showContent('contribution')">Contribution</div>
         <div class="tab" onclick="showContent('media')">Gallery</div>
     </div>
     <div id="description" class="content active">
-        <p>This innovative prototype is a self-contained environmental sensor designed to detect Nitrogen Dioxide (NO<sub>2</sub>) gas with high precision. The device operates by pumping ambient air into a specialized chamber housing an indium gallium zinc oxide-based transducer, which is highly sensitive to Nitrogen Dioxide. This allows for accurate monitoring of NO<sub>2</sub> levels in various environments, making it an essential tool for environmental monitoring and research.</p>
+        <p>This advanced device is specifically designed for plant phenotyping, focusing on the detailed study of plant roots for research purposes. It captures high-resolution images of seeds and their roots throughout the germination cycle. These images are then processed by a sophisticated machine learning model that analyzes various factors, including root growth speed, growth patterns, germination success rates, and more. In addition to its imaging capabilities, the device automates key environmental conditions such as light and growth medium temperature, creating an optimal environment for seed germination and root development.</p>
     </div>
     <div id="contribution" class="content">
         <ul>
-            <li><strong>Enclosure Design and Fabrication:</strong> Creating a durable and functional enclosure to protect the internal components and ensure reliable operation in various environmental conditions.</li>
-            <li><strong>Circuitry Design and Fabrication:</strong> Engineering the electronic circuitry to support the transducer and overall functionality of the device.</li>
-            <li><strong>Component Integration:</strong> Seamlessly integrating all components to ensure cohesive and efficient operation of the sensor.</li>
+            <li><strong>Electronic Hardware Development: </strong> Designing and assembling the electronic components that form the backbone of the device.</li>
+            <li><strong>Firmware Development:</strong> Creating robust firmware to ensure seamless operation and integration of all hardware components.</li>
+            <li><strong>Control and Scheduling Software:</strong> Developing sophisticated software for precise actuation, light control, and temperature regulation, ensuring the device operates autonomously and efficiently.</li>
         </ul>
     </div>
     <div id="media" class="content">
